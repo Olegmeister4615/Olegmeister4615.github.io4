@@ -286,7 +286,7 @@ $scope.go = function(){
   if($scope.item.change_voice == 1){
     tts_init(speaker = 'ermil', emotion = 'neutral', speed = 1);
   }
-  if(f_c==1){
+  if($scope.item.f_c==1){
     change_man()
   }
 
