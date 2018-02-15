@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://webasr.yandex.net/jsapi/v1/webspeechkit.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="main.css">
+
+  <script src="node_modules/angular/angular.js"></script>
+  <script src='main.js'></script>
+
+
+</head>
+<body ng-app="app" ng-cloak>
+    <div class="container" ng-controller="main" ng-init="load()">
+
+        <div class="row">
+
+            <div class="jimbotron">
+                <div ng-if="isNotCalling" class="not_calling">
+                    <h1>Сейчас ты позвонишь на номер потенциального клиента, соберись и будь бдителен</h1>
+                    <button id='next' ng-click='init()' ng-disabled="disableButton"  type="button" class="btn btn-primary">Начать звонок</button>
+                </div>
+                <div ng-if="!isNotCalling">
+                <div  ng-if='item.key' class="photo">
+                    <img  src="{{image}}" alt="">
+                </div>
+                <div class="Name">
+                    <h1>Кто на линии: {{who}}</h1>
+                </div>
+                <div class="speak">
+                    <h4>Он/она говорит:</h4>
+                    <p class='text'>{{phrase}}</p>
+                </div>
+                <div class="answer" ng-if="answer">
+                    <h4>Рекомендованный ответ:</h4>
+                    <p class='text'>{{answer}}</p>
+                </div>
+                    <button id='next' ng-click='go()' ng-disabled="disableButton"  type="button" class="btn btn-primary">Далее</button>
+                </div>
+            </div>
+        </div>
+        <!--span class="toggle-bg">
+                <input type="radio" name="toggle" value="off">
+                <input type="radio" name="toggle" value="on">
+                <span class="switch"></span>
+        </span-->
+
+    </div>
+    <!--script>
+    window.onload=function(){
+        window.ya.speechkit.settings.apikey = '111'
+        alert(window.ya.speechkit.settings.apikey);
+    };
+    </script-->
+</body>
+</html>
